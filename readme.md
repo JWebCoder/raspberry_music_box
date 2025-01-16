@@ -18,10 +18,8 @@
   - Desktop - fazer acesso remoto (fazer alguns testes)
   - RPI - adicionar a breadboard, adicionar 1 led
   - Desktop - criar um script para o led e executa no RPI
-- RPI - adicionar um botão à breadboard
-- Desktop - actualizar o script para escrever alguma coisa no ecrã quando o botão é carregado
-- RPI - adicionar a coluna ao RPI
-- Desktop - actualizar o script para dar som quando o botão é carregado
+  - RPI - adicionar um botão à breadboard
+  - Desktop - criar um script para dar um som quando o botão é carregado
 - RPI - adicionar mais botões à breadboard
 - Desktop - adicionar mais botões ao script
 - RPI - adicionar o switch para as várias layers
@@ -166,7 +164,7 @@ Não te esqueças também de ligar uma coluna ao Jack to Raspberry Pi.
 
 Hora do código.
 
-# Passo 7
+# Passo 8
 
 Cria novamente um ficheiro **passo7.py** com o seguinte código:
 
