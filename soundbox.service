@@ -1,0 +1,11 @@
+[Unit]
+Description=Sound Box
+
+[Service]
+User=root
+Restart=on-failure
+WorkingDirectory=/home/jejay/gpio_test
+ExecStart=/home/jejay/gpio_test/.venv/bin/python /home/jejay/gpio_test/soundbox_service.py
+
+[Install]
+WantedBy=multi-user.target
