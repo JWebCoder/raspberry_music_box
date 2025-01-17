@@ -20,10 +20,10 @@
   - Desktop - criar um script para o led e executa no RPI
   - RPI - adicionar um botão à breadboard
   - Desktop - criar um script para dar um som quando o botão é carregado
-- RPI - adicionar mais botões à breadboard
-- Desktop - adicionar mais botões ao script
-- RPI - adicionar o switch para as várias layers
-- Desktop - adicionar o suporte para varias layers de audio
+  - RPI - adicionar mais botões à breadboard
+  - Desktop - adicionar mais botões ao script
+  - RPI - adicionar o switch para as várias layers
+  - Desktop - adicionar o suporte para varias layers de audio
 
 # Passo 1
 
@@ -197,3 +197,61 @@ Copia os ficheiros **passo7.py, sound_button.py, sound_file.py e fileParser.py**
 Liga-te por SSH e instala as dependências `pip install numpy simpleaudio`.
 
 E por fim `python passo7.py`.
+
+# Passo 9
+
+Nunca ate esqueças, se vais mexer na breadboard, desliga sempre o Raspberry Pi antes de o fazeres.
+
+Utiliza aquilo que aprendeste até agora, e tenta adicionar mais botões à breadboard.
+
+# Passo 10
+
+Agora que tens mais botões, actualiza o script para adicionar esses mesmos botões e mete um som para cada um deles.
+
+# Passo 11
+
+Está tudo a funcionar? Óptimo!
+
+O objectivo agora é adicionar ainda mais opções aos nosso botões.
+
+Vais fazer com que cada um deles suporte até 4 sons, e que possas escolher quais os sons que vão tocar ao carregar num botão.
+
+Para isto vais precisar de mais um botão, mas desta vez esse botão vai definir um estado em vez de fazer um som.
+
+Cada vez que carregares no botão, ele irá activar um novo som para os botões.
+
+Encaixa o botão no centro da breadboard.
+
+Liga um cabo entre o GPIO 16 e a linha da breadboard que está ligada a uma das pernas do botão.
+
+E agora mais um fio entre e "-" e a outra perna do botão que está do mesmo lado onde ligaste o fio anterior.
+
+Imagem do circuito
+
+# Passo 12
+
+Agora tens de actualizar o script.
+
+Adiciona o seguinte ao teu código:
+
+```python
+from layer_switch import LayerSwitch
+
+layerSwitch = LayerSwitch(16)
+```
+
+Também tens de alterar os teus botões, e adicionar mais um parâmetro:
+
+```python
+SoundButton(
+  27,
+  [
+    "./audio_button1_1.wav"
+  ],
+  layerSwitch
+)
+```
+
+Repara que agora estamos a passar o layerSwitch como parâmetro para o botão, isto vai fazer com que o botão saiba qual som tem de tocar ao ser clicado.
+
+Nota: O que está a acontecer? Como é que podes melhorar? Que ideias tens para fazer ainda mais?
