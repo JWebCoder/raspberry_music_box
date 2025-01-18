@@ -1,6 +1,7 @@
 from layer_switch import LayerSwitch
 from sound_button import SoundButton
 from time import sleep
+from gpiozero import LED
 
 layerSwitch = LayerSwitch()
 
@@ -58,6 +59,14 @@ SoundButton(
   ],
   layerSwitch
 )
+
+led = LED(20)
+
+while True:
+    led.on()
+    sleep(1)
+    led.off()
+    sleep(1)
 
 print("started")
 try:
