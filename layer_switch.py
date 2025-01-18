@@ -1,12 +1,5 @@
 from gpiozero import Button
 
-"""
-00 - 0
-01 - 1
-10 - 2
-11 - 3
-"""
-
 class LayerSwitch:
   def __init__(self):
     self.layer = 0
