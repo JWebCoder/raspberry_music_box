@@ -12,18 +12,18 @@
 
 ## Passos
 
-  - Desktop - criar um script em python que escrever alguma coisa no ecrã
-  - Desktop - formatar o cartão e escolher o sistema operativo
-  - RPI - meter o cartão, ligar os cabos necessários e ligar o RPI
-  - Desktop - fazer acesso remoto (fazer alguns testes)
-  - RPI - adicionar a breadboard, adicionar 1 led
-  - Desktop - criar um script para o led e executa no RPI
-  - RPI - adicionar um botão à breadboard
-  - Desktop - criar um script para dar um som quando o botão é carregado
-  - RPI - adicionar mais botões à breadboard
-  - Desktop - adicionar mais botões ao script
-  - RPI - adicionar o switch para as várias layers
-  - Desktop - adicionar o suporte para varias layers de audio
+  1. Desktop - criar um script em python que escrever alguma coisa no ecrã
+  2. Desktop - formatar o cartão e escolher o sistema operativo
+  3. RPI - meter o cartão, ligar os cabos necessários e ligar o RPI
+  4. Desktop - fazer acesso remoto (fazer alguns testes)
+  5. RPI - adicionar a breadboard, adicionar 1 led
+  6. Desktop - criar um script para o led e executa no RPI
+  7. RPI - adicionar um botão à breadboard
+  8. Desktop - criar um script para dar um som quando o botão é carregado
+  9. RPI - adicionar mais botões à breadboard
+  10. Desktop - adicionar mais botões ao script
+  11. RPI - adicionar o switch para as várias layers
+  12. Desktop - adicionar o suporte para varias layers de audio
 
 # Passo 1
 
@@ -226,7 +226,7 @@ Liga um cabo entre o GPIO 16 e a linha da breadboard que está ligada a uma das 
 
 E agora mais um fio entre e "-" e a outra perna do botão que está do mesmo lado onde ligaste o fio anterior.
 
-Imagem do circuito
+![alt text](layerSwitch.drawio.png)
 
 # Passo 12
 
