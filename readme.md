@@ -1,87 +1,95 @@
-# passo a passo
+# Step by Step
 
-## O que vamos usar
+## What We Will Use
 
-- Raspberry PI
-- breadboard (para testar o nosso circuito)
-- vários cabos
-- vários botões
-- um switch
-- um multímetro (opcional)
-- legos :D
+- Raspberry PI  
+- Breadboard (for testing our circuit)  
+- Various cables  
+- Various buttons  
+- A switch  
+- A multimeter (optional)  
+- Legos :D  
 
-## Passos
+## Steps
 
-  1. Desktop - criar um script em python que escrever alguma coisa no ecrã
-  2. Desktop - formatar o cartão e escolher o sistema operativo
-  3. RPI - meter o cartão, ligar os cabos necessários e ligar o RPI
-  4. Desktop - fazer acesso remoto (fazer alguns testes)
-  5. RPI - adicionar a breadboard, adicionar 1 led
-  6. Desktop - criar um script para o led e executa no RPI
-  7. RPI - adicionar um botão à breadboard
-  8. Desktop - criar um script para dar um som quando o botão é carregado
-  9. RPI - adicionar mais botões à breadboard
-  10. Desktop - adicionar mais botões ao script
-  11. RPI - adicionar o switch para as várias layers
-  12. Desktop - adicionar o suporte para varias layers de audio
+1. **Desktop** - Create a Python script that writes something on the screen  
+2. **Desktop** - Format the SD card and choose the operating system  
+3. **RPI** - Insert the SD card, connect the necessary cables, and power on the RPI  
+4. **Desktop** - Establish remote access (run some tests)  
+5. **RPI** - Add the breadboard and a LED  
+6. **Desktop** - Create a script for the LED and run it on the RPI  
+7. **RPI** - Add a button to the breadboard  
+8. **Desktop** - Create a script to play a sound when the button is pressed  
+9. **RPI** - Add more buttons to the breadboard  
+10. **Desktop** - Add more buttons to the script  
+11. **RPI** - Add the switch for different layers  
+12. **Desktop** - Add support for multiple layers of audio  
 
-# Passo 1
+---
 
-Para começar vamos escrever um pequeno script e executa-lo para ver o que acontece.
+# Step 1
 
-Primeiro cria um ficheiro chamado `helloworld.py` e adiciona o seguinte código:
+To start, let's write a small script and run it to see what happens.  
+
+First, create a file named `helloworld.py` and add the following code:
 
 ```python
 print("hello world")
 ```
 
-Agora abre um terminal e executa o script escrevendo: 
+Now open a terminal and run the script by typing:
 
 ```bash
 python helloworld.py
 ```
 
-**Nota:** O que aconteceu?
+**Note:** What happened?
 
-# Passo 2
+---
 
-Para formatar o cartão e instalar o sistema desejado, vamos utilizar a aplicação [Raspberry Pi Imager](https://www.raspberrypi.com/software/).
+# Step 2
 
-Para isso, abre a aplicação `Raspberry PI Imager`.
+To format the SD card and install the desired system, we will use the [Raspberry Pi Imager](https://www.raspberrypi.com/software/).  
 
-- Escolhe o device que estás a utilizar.
-- O OS para este projecto será o `Raspberry Pi OS (other ) -> Raspberry Pi OS Lite (32-bit)`, mas podes usar também o `Raspberry Pi OS` que se encontra logo no inicio
-- O storage é o cartão de memória
+Open the `Raspberry Pi Imager` application.  
 
-E agora é so carregar em NEXT
+- Select the device you are using.  
+- The OS for this project will be `Raspberry Pi OS (other) -> Raspberry Pi OS Lite (32-bit)`, but you can also use the default `Raspberry Pi OS`.  
+- The storage option is your SD card.  
 
-# Passo 3
+Now just click NEXT.
 
-Agora é hora de ligar o Raspberry Pi.
+---
 
-Liga um cabo de rede ou caso tenhas configurado o WiFi no passo anterior, o Raspberry Pi vai-se ligar automaticamente à rede (se for um Raspberry Pi antigo poderás precisar de uma pen WiFi).
+# Step 3
 
-Mete o cartão de memória.
+Now it's time to power on the Raspberry Pi.  
 
-E por fim, liga o cabo USB para dar carga ao Raspberry Pi.
+Connect a network cable, or if you've set up WiFi in the previous step, the Raspberry Pi will connect automatically (for older models, you might need a WiFi dongle).  
 
-# Passo 4
+Insert the SD card.  
 
-Agora abre um terminal no desktop e  para te ligares remotamente ao Raspberry Pi utilizando SSH
+Finally, connect the USB cable to power the Raspberry Pi.
 
-No terminal escreve:
+---
+
+# Step 4
+
+Now open a terminal on your desktop to remotely access the Raspberry Pi using SSH.  
+
+In the terminal, type:
 
 ```bash
 ssh hostname.local -l username
 ```
 
-Onde hostname e username são os dados que definiste no passo 2
+Where `hostname` and `username` are the details you set in step 2.  
 
-Escreve a password e já está:
+Enter your password and you're in:
 
 ![raspberry pi screen after ssh login](image.png)
 
-Aproveita para saber o teu IP que vais precisar já a seguir, para isso escreve:
+Find your IP address by typing:
 
 ```bash
 ip addr
@@ -89,37 +97,41 @@ ip addr
 
 ![alt text](image-1.png)
 
-Neste caso o IP é o **192.168.50.186**
+In this example, the IP is **192.168.50.186**.
 
-Abre também uma ligação SFTP para ser mais fácil transferir ficheiros, podes utilizar uma aplicação chamada [FileZilla](https://filezilla-project.org/).
+Also, open an SFTP connection to transfer files easily. You can use [FileZilla](https://filezilla-project.org/).
 
-Utiliza o teu IP **192.168.50.186** (no meu caso), nome de utilizador **username**, a tua **password**, e a porta é a 22
+Use your IP **192.168.50.186** (in my case), username **username**, your **password**, and port **22**.
 
 ![alt text](image-2.png)
 
 ![alt text](image-3.png)
 
-Agora já consegues a ver os ficheiros dentro do Raspberry Pi.
+Now you can see the files inside the Raspberry Pi.
 
-# Passo 5
+---
 
-Desliga o Raspberry Pi por agora.
+# Step 5
 
-Agora liga um cabo entre o pin 6 e a linha com um "-" na breadboard.
+Turn off the Raspberry Pi for now.
 
-Depois liga um cabo entre o GPIO 17 e uma das linhas do meio.
+Now connect a cable between pin **6** and the line with a "-" on the breadboard.  
 
-Vais precisar de uma resistência e de um Led.
+Then, connect a cable between **GPIO 17** and one of the middle lines.  
 
-Liga uma resistência entre a linha do GPIO 17 e a perna mais longa do Led, depois a liga a perna mais curta do Led à linha "-".
+You'll need a resistor and a LED.  
+
+Connect a resistor between the **GPIO 17** line and the longer leg of the LED, then connect the shorter leg of the LED to the "-" line.
 
 ![alt text](led.drawio.png)
 
-# Passo 6
+---
 
-Agora é preciso controlar o Led, e para isso vais por o Led a piscar.
+# Step 6
 
-No desktop cria um ficheiro chamado `led.py` com o seguinte código:
+Now, let's control the LED by making it blink.  
+
+On your desktop, create a file named `led.py` with the following code:
 
 ```python
 from gpiozero import LED
@@ -134,39 +146,43 @@ while True:
     sleep(1)
 ```
 
-Isto vai activar o Led no pin GPIO 17 e depois ligar e desligar enquanto não parares o script.
+This will activate the LED on **GPIO 17**, turning it on and off continuously.
 
-Agora liga novamente o Raspberry Pi e acede pelo FileZilla.
+Now turn the Raspberry Pi back on and access it via FileZilla.  
 
-Copia o ficheiro para o Raspberry Pi.
+Copy the file to the Raspberry Pi.  
 
-E por fim liga-te por SSH e escreve `python led.py` e vê a magia a acontecer.
+Then, connect via SSH and run `python led.py` to see the magic happen.
 
-**Nota:** aproveita para brincar com os tempos ou até mesmo alterar o script. Se tiveres um multímetro, podes usar para ver a Voltagem a mudar quando o Led é ligado ou desligado.
+**Note:** Try modifying the timing or even changing the script. If you have a multimeter, you can use it to see the voltage change when the LED turns on or off.
 
-# Passo 7
+---
 
-Desliga o Raspberry Pi por agora.
+# Step 7
 
-Agora vais adicionar o primeiro botão.
+Turn off the Raspberry Pi for now.
 
-O botão é nada mais que uma peça electronica que só passa corrente quanto carregamos nele, e vais usar isso para enviar dados para o Raspberry Pi.
+Now, let's add the first button.
 
-A ligação é muito simples, encaixa o botão no centro da breadboard.
+A button is simply an electronic component that allows current to pass only when pressed. You'll use this to send data to the Raspberry Pi.
 
-Liga um cabo entre o GPIO 27 e a linha da breadboard que está ligada a uma das pernas do botão.
+The connection is very simple: place the button in the center of the breadboard.
 
-E agora mais um fio entre e "-" e a outra perna do botão que está do mesmo lado onde ligaste o fio anterior.
+Connect a cable between **GPIO 27** and the breadboard line connected to one leg of the button.  
 
-Não te esqueças também de ligar uma coluna ao Jack to Raspberry Pi.
+Then, connect another cable between "-" and the other leg of the button, on the same side as the first wire.  
+
+Don't forget to connect a speaker to the Raspberry Pi's audio jack.
 
 ![alt text](button.drawio.png)
 
-Hora do código.
+Now, let's add the code.
 
-# Passo 8
+---
 
-Cria novamente um ficheiro **passo7.py** com o seguinte código:
+# Step 8
+
+Create a file **step7.py** with the following code:
 
 ```python
 from gpiozero import LED
@@ -182,57 +198,72 @@ SoundButton(
   ]
 )
 
-while (True):
-  led.on()
-  sleep(1)
-  led.off()
-  sleep(1)
-
+while True:
+    led.on()
+    sleep(1)
+    led.off()
+    sleep(1)
 ```
 
-Agora liga novamente o Raspberry Pi e acede pelo FileZilla.
+Now turn the Raspberry Pi back on and access it via FileZilla.  
 
-Copia os ficheiros **passo7.py, sound_button.py, sound_file.py e fileParser.py**, para o Raspberry Pi.
+Copy the files **step7.py, sound_button.py, sound_file.py, and fileParser.py** to the Raspberry Pi.  
 
-Liga-te por SSH e instala as dependências `pip install numpy simpleaudio`.
+Connect via SSH and install the dependencies with:
 
-E por fim `python passo7.py`.
+```bash
+pip install numpy simpleaudio
+```
 
-# Passo 9
+Finally, run:
 
-Nunca ate esqueças, se vais mexer na breadboard, desliga sempre o Raspberry Pi antes de o fazeres.
+```bash
+python step7.py
+```
 
-Utiliza aquilo que aprendeste até agora, e tenta adicionar mais botões à breadboard.
+---
 
-# Passo 10
+# Step 9
 
-Agora que tens mais botões, actualiza o script para adicionar esses mesmos botões e mete um som para cada um deles.
+Always remember: **if you're going to modify the breadboard, turn off the Raspberry Pi first**.
 
-# Passo 11
+Use what you've learned so far and try adding more buttons to the breadboard.
 
-Está tudo a funcionar? Óptimo!
+---
 
-O objectivo agora é adicionar ainda mais opções aos nosso botões.
+# Step 10
 
-Vais fazer com que cada um deles suporte até 4 sons, e que possas escolher quais os sons que vão tocar ao carregar num botão.
+Now that you have more buttons, update the script to include them and assign a different sound to each.
 
-Para isto vais precisar de mais um botão, mas desta vez esse botão vai definir um estado em vez de fazer um som.
+---
 
-Cada vez que carregares no botão, ele irá activar um novo som para os botões.
+# Step 11
 
-Encaixa o botão no centro da breadboard.
+Everything working? Great!
 
-Liga um cabo entre o GPIO 16 e a linha da breadboard que está ligada a uma das pernas do botão.
+Now let's add even more options to our buttons.
 
-E agora mais um fio entre e "-" e a outra perna do botão que está do mesmo lado onde ligaste o fio anterior.
+We'll make each button support up to four sounds and allow switching between them.
+
+For this, you'll need one more button, which will act as a **layer switch** instead of playing a sound.
+
+Each time you press this button, it will activate a new set of sounds for the buttons.
+
+Place the button in the center of the breadboard.
+
+Connect a cable between **GPIO 16** and the breadboard line connected to one leg of the button.
+
+Then, connect another cable between "-" and the other leg of the button, on the same side as the first wire.
 
 ![alt text](layerSwitch.drawio.png)
 
-# Passo 12
+---
 
-Agora tens de actualizar o script.
+# Step 12
 
-Adiciona o seguinte ao teu código:
+Now, update your script.
+
+Add the following code:
 
 ```python
 from layer_switch import LayerSwitch
@@ -240,7 +271,7 @@ from layer_switch import LayerSwitch
 layerSwitch = LayerSwitch(16)
 ```
 
-Também tens de alterar os teus botões, e adicionar mais um parâmetro:
+Also, update your buttons by adding another parameter:
 
 ```python
 SoundButton(
@@ -252,6 +283,6 @@ SoundButton(
 )
 ```
 
-Repara que agora estamos a passar o layerSwitch como parâmetro para o botão, isto vai fazer com que o botão saiba qual som tem de tocar ao ser clicado.
+Notice that now we are passing `layerSwitch` as a parameter to the button. This allows the button to know which sound to play when pressed.
 
-Nota: O que está a acontecer? Como é que podes melhorar? Que ideias tens para fazer ainda mais?
+**Note:** What is happening? How can you improve it? What ideas do you have to expand on this even further?
