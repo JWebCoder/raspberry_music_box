@@ -79,7 +79,7 @@ Onde hostname e username são os dados que definiste no passo 2
 
 Escreve a password e já está:
 
-![raspberry pi screen after ssh login](image.png)
+![raspberry pi screen after ssh login](images/image.png)
 
 Aproveita para saber o teu IP que vais precisar já a seguir, para isso escreve:
 
@@ -87,7 +87,7 @@ Aproveita para saber o teu IP que vais precisar já a seguir, para isso escreve:
 ip addr
 ```
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 Neste caso o IP é o **192.168.50.186**
 
@@ -95,9 +95,9 @@ Abre também uma ligação SFTP para ser mais fácil transferir ficheiros, podes
 
 Utiliza o teu IP **192.168.50.186** (no meu caso), nome de utilizador **username**, a tua **password**, e a porta é a 22
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 
 Agora já consegues a ver os ficheiros dentro do Raspberry Pi.
 
@@ -113,7 +113,7 @@ Vais precisar de uma resistência e de um Led.
 
 Liga uma resistência entre a linha do GPIO 17 e a perna mais longa do Led, depois a liga a perna mais curta do Led à linha "-".
 
-![alt text](led.drawio.png)
+![alt text](images/led.drawio.png)
 
 # Passo 6
 
@@ -160,7 +160,7 @@ E agora mais um fio entre e "-" e a outra perna do botão que está do mesmo lad
 
 Não te esqueças também de ligar uma coluna ao Jack to Raspberry Pi.
 
-![alt text](button.drawio.png)
+![alt text](images/button.drawio.png)
 
 Hora do código.
 
@@ -226,7 +226,7 @@ Liga um cabo entre o GPIO 16 e a linha da breadboard que está ligada a uma das 
 
 E agora mais um fio entre e "-" e a outra perna do botão que está do mesmo lado onde ligaste o fio anterior.
 
-![alt text](layerSwitch.drawio.png)
+![alt text](images/layerSwitch.drawio.png)
 
 # Passo 12
 

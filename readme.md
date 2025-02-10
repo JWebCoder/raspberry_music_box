@@ -87,7 +87,7 @@ Where `hostname` and `username` are the details you set in step 2.
 
 Enter your password and you're in:
 
-![raspberry pi screen after ssh login](image.png)
+![raspberry pi screen after ssh login](images/image.png)
 
 Find your IP address by typing:
 
@@ -95,7 +95,7 @@ Find your IP address by typing:
 ip addr
 ```
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 In this example, the IP is **192.168.50.186**.
 
@@ -103,9 +103,9 @@ Also, open an SFTP connection to transfer files easily. You can use [FileZilla](
 
 Use your IP **192.168.50.186** (in my case), username **username**, your **password**, and port **22**.
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 
 Now you can see the files inside the Raspberry Pi.
 
@@ -123,7 +123,7 @@ You'll need a resistor and a LED.
 
 Connect a resistor between the **GPIO 17** line and the longer leg of the LED, then connect the shorter leg of the LED to the "-" line.
 
-![alt text](led.drawio.png)
+![alt text](images/led.drawio.png)
 
 ---
 
@@ -174,7 +174,7 @@ Then, connect another cable between "-" and the other leg of the button, on the 
 
 Don't forget to connect a speaker to the Raspberry Pi's audio jack.
 
-![alt text](button.drawio.png)
+![alt text](images/button.drawio.png)
 
 Now, let's add the code.
 
@@ -218,7 +218,7 @@ pip install numpy simpleaudio
 Finally, run:
 
 ```bash
-python step7.py
+python s  
 ```
 
 ---
@@ -255,7 +255,7 @@ Connect a cable between **GPIO 16** and the breadboard line connected to one leg
 
 Then, connect another cable between "-" and the other leg of the button, on the same side as the first wire.
 
-![alt text](layerSwitch.drawio.png)
+![alt text](images/layerSwitch.drawio.png)
 
 ---
 
