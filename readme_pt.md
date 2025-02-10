@@ -16,8 +16,8 @@
   2. Desktop - formatar o cartão e escolher o sistema operativo
   3. RPI - meter o cartão, ligar os cabos necessários e ligar o RPI
   4. Desktop - fazer acesso remoto (fazer alguns testes)
-  5. RPI - adicionar a breadboard, adicionar 1 led
-  6. Desktop - criar um script para o led e executa no RPI
+  5. RPI - adicionar a breadboard, adicionar 1 Led
+  6. Desktop - criar um script para o Led e executa no RPI
   7. RPI - adicionar um botão à breadboard
   8. Desktop - criar um script para dar um som quando o botão é carregado
   9. RPI - adicionar mais botões à breadboard
@@ -49,11 +49,11 @@ Para formatar o cartão e instalar o sistema desejado, vamos utilizar a aplicaç
 
 Para isso, abre a aplicação `Raspberry PI Imager`.
 
-- Escolhe o device que estás a utilizar.
-- O OS para este projecto será o `Raspberry Pi OS (other ) -> Raspberry Pi OS Lite (32-bit)`, mas podes usar também o `Raspberry Pi OS` que se encontra logo no inicio
+- Escolhe o dispositivo que estás a utilizar.
+- O OS para este projeto será o `Raspberry Pi OS (other ) -> Raspberry Pi OS Lite (32-bit)`, mas podes usar também o `Raspberry Pi OS` que se encontra logo no inicio
 - O storage é o cartão de memória
 
-E agora é so carregar em NEXT
+E agora é só carregar em NEXT
 
 # Passo 3
 
@@ -113,34 +113,34 @@ Vais precisar de uma resistência e de um Led.
 
 Liga uma resistência entre a linha do GPIO 17 e a perna mais longa do Led, depois a liga a perna mais curta do Led à linha "-".
 
-![alt text](images/led.drawio.png)
+![alt text](images/Led.drawio.png)
 
 # Passo 6
 
 Agora é preciso controlar o Led, e para isso vais por o Led a piscar.
 
-No desktop cria um ficheiro chamado `led.py` com o seguinte código:
+No desktop cria um ficheiro chamado `Led.py` com o seguinte código:
 
 ```python
-from gpiozero import LED
+from gpiozero import Led
 from time import sleep
 
-led = LED(17)
+Led = Led(17)
 
 while True:
-    led.on()
+    Led.on()
     sleep(1)
-    led.off()
+    Led.off()
     sleep(1)
 ```
 
-Isto vai activar o Led no pin GPIO 17 e depois ligar e desligar enquanto não parares o script.
+Isto vai ativar o Led no pin GPIO 17 e depois ligar e desligar enquanto não parares o script.
 
 Agora liga novamente o Raspberry Pi e acede pelo FileZilla.
 
 Copia o ficheiro para o Raspberry Pi.
 
-E por fim liga-te por SSH e escreve `python led.py` e vê a magia a acontecer.
+E por fim liga-te por SSH e escreve `python Led.py` e vê a magia a acontecer.
 
 **Nota:** aproveita para brincar com os tempos ou até mesmo alterar o script. Se tiveres um multímetro, podes usar para ver a Voltagem a mudar quando o Led é ligado ou desligado.
 
@@ -150,7 +150,7 @@ Desliga o Raspberry Pi por agora.
 
 Agora vais adicionar o primeiro botão.
 
-O botão é nada mais que uma peça electronica que só passa corrente quanto carregamos nele, e vais usar isso para enviar dados para o Raspberry Pi.
+O botão é nada mais que uma peça eletrónica que só passa corrente quanto carregamos nele, e vais usar isso para enviar dados para o Raspberry Pi.
 
 A ligação é muito simples, encaixa o botão no centro da breadboard.
 
@@ -169,11 +169,11 @@ Hora do código.
 Cria novamente um ficheiro **passo7.py** com o seguinte código:
 
 ```python
-from gpiozero import LED
+from gpiozero import Led
 from time import sleep
 from sound_button import SoundButton
 
-led = LED(17)
+Led = Led(17)
 
 SoundButton(
   27,
@@ -183,9 +183,9 @@ SoundButton(
 )
 
 while (True):
-  led.on()
+  Led.on()
   sleep(1)
-  led.off()
+  Led.off()
   sleep(1)
 
 ```
@@ -206,19 +206,19 @@ Utiliza aquilo que aprendeste até agora, e tenta adicionar mais botões à brea
 
 # Passo 10
 
-Agora que tens mais botões, actualiza o script para adicionar esses mesmos botões e mete um som para cada um deles.
+Agora que tens mais botões, atualiza o script para adicionar esses mesmos botões e mete um som para cada um deles.
 
 # Passo 11
 
-Está tudo a funcionar? Óptimo!
+Está tudo a funcionar? Ótimo!
 
-O objectivo agora é adicionar ainda mais opções aos nosso botões.
+O objetivo agora é adicionar ainda mais opções aos nosso botões.
 
 Vais fazer com que cada um deles suporte até 4 sons, e que possas escolher quais os sons que vão tocar ao carregar num botão.
 
 Para isto vais precisar de mais um botão, mas desta vez esse botão vai definir um estado em vez de fazer um som.
 
-Cada vez que carregares no botão, ele irá activar um novo som para os botões.
+Cada vez que carregares no botão, ele irá ativar um novo som para os botões.
 
 Encaixa o botão no centro da breadboard.
 
@@ -230,7 +230,7 @@ E agora mais um fio entre e "-" e a outra perna do botão que está do mesmo lad
 
 # Passo 12
 
-Agora tens de actualizar o script.
+Agora tens de atualizar o script.
 
 Adiciona o seguinte ao teu código:
 
